@@ -40,8 +40,7 @@ SynthDef("thing", {
 		SinOsc.ar(440, 0, 0.2, 0)
 		*
 		BrownNoise.ar(0.4, 0)
-		/
-		SinOsc.ar(0.3, 1, 0.2, 0)
+
 	)
 
 }).add;
@@ -51,13 +50,15 @@ Synth("thing")
 
 (
 SynthDef("ringMod", {
+	var ampOsc = SinOsc.kr(0.2, 1.5pi, 1, 0.4);
+	var freqMod = SinOsc.kr(0.6, 1, 600, 30);
+	var freqMod2 = SinOsc.kr(20, 1, 1000, 500);
     Out.ar(
         0,
-        SinOsc.ar([440.067, 441.013], 0, 1)
+        SinOsc.ar([freqMod, freqMod2], 0, ampOsc)
         *
-        SinOsc.ar([111, 109], 0, 0.2)
-		*
-		Saw.ar(4, 0.8, 0)
+		SinOsc.ar([500, freqMod], 0, 0.2)
+
     )
 }).add;
 )
