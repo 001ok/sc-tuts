@@ -1,4 +1,4 @@
 SuperCollider Experimentations
 ---------------------------------------------------------
 
-A small sample of experimentations in Super Collider. 
+A small sample of experiments with Super Collider. 
